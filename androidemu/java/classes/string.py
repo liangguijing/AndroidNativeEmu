@@ -3,8 +3,8 @@ from ..java_field_def import JavaFieldDef
 from ..java_method_def import java_method_def, JavaMethodDef
 from .array import Array
 
+
 class String(metaclass=JavaClassDef, jvm_name='java/lang/String'):
-    
     def __init__(self, pystr=""):
         self.__str = pystr
     #
@@ -31,5 +31,4 @@ class String(metaclass=JavaClassDef, jvm_name='java/lang/String'):
     #
 
     def __repr__(self):
-        return "JavaString(%s)"%self.get_py_string()
-#
+        return str(self.__str)

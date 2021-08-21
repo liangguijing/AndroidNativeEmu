@@ -11,10 +11,10 @@ class Boolean(metaclass=JavaClassDef, jvm_name='java/lang/Boolean'):
 #
 
 
-class Integer(metaclass=JavaClassDef, jvm_name='java/lang/Integer'):
-    
-    def __init__(self, value):
-        self.__value = value
+# class Integer(metaclass=JavaClassDef, jvm_name='java/lang/Integer'):
+#
+#     def __init__(self, value):
+#         self.__value = value
     #
 
 #
