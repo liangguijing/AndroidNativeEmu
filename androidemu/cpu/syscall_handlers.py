@@ -1,14 +1,9 @@
 import logging
 
-from unicorn import *
 from unicorn.arm_const import *
 
 from .interrupt_handler import InterruptHandler
 from .syscall_handler import SyscallHandler
-from ..utils import memory_helpers
-import unicorn
-import traceback
-import sys
 
 logger = logging.getLogger(__name__)
 
@@ -37,7 +32,7 @@ class SyscallHandlers:
             args = args[:handler.arg_count]
             args_formatted = ", ".join(["0x%08X" % arg for arg in args])
             logger.debug("Executing syscall %s(%s) at 0x%08X" % (handler.name, args_formatted,
-                                                               mu.reg_read(UC_ARM_REG_PC)))
+                                                                 mu.reg_read(UC_ARM_REG_PC)))
 
             try:
                 result = handler.callback(mu, *args)
@@ -57,4 +52,3 @@ class SyscallHandlers:
             logger.exception(error)
             mu.emu_stop()
             raise RuntimeError(error)
-            

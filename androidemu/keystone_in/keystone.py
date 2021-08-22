@@ -33,7 +33,7 @@ for _lib in _all_libs:
     except OSError:
         pass
 
-if _found == False:
+if _found is False:
     # try loading from default paths
     for _lib in _all_libs:
         try:
@@ -44,7 +44,7 @@ if _found == False:
         except OSError:
             pass
 
-if _found == False:
+if _found is False:
     # last try: loading from python lib directory
     _lib_path = distutils.sysconfig.get_python_lib()
     for _lib in _all_libs:

@@ -17,7 +17,7 @@ from.syscall_handlers import SyscallHandlers
 from ..utils import memory_helpers
 from .. import config
 from .. import pcb
-from ..utils import debug_utils
+# from ..utils import debug_utils
 
 OVERRIDE_TIMEOFDAY = False
 OVERRIDE_TIMEOFDAY_SEC = 0

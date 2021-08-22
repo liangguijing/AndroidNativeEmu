@@ -28,15 +28,15 @@ from .vfs.file_system import VirtualFileSystem
 from .java.java_class_def import JavaClassDef
 from .java.constant_values import JAVA_NULL
 
-sys.stdout = sys.stderr
+# sys.stdout = sys.stderr
 #由于这里的stream只能改一次，为避免与fork之后的子进程写到stdout混合，将这些log写到stderr
 # FIXME:解除这种特殊的依赖
-logging.basicConfig(level=logging.DEBUG, format='%(process)d - %(asctime)s - %(levelname)s - %(message)s', stream=sys.stderr)
+# logging.basicConfig(level=logging.DEBUG, format='%(process)d - %(asctime)s - %(levelname)s - %(message)s', stream=sys.stderr)
 
 logger = logging.getLogger(__name__)
 
-class Emulator:
 
+class Emulator:
     # https://github.com/unicorn-engine/unicorn/blob/8c6cbe3f3cabed57b23b721c29f937dd5baafc90/tests/regress/arm_fp_vfp_disabled.py#L15
     def _enable_vfp(self):
         # MRC p15, #0, r1, c1, c0, #2
